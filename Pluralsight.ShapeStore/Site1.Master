@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Pluralsight.ShapeStore.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link href="https://dmw2-shapestoreresources.s3.amazonaws.com/css/bootstrap.css" rel="stylesheet" />
+    <script src="https://dmw2-shapestoreresources.s3.amazonaws.com/js/jquery-2.0.2.js"></script>
+    <script src="https://dmw2-shapestoreresources.s3.amazonaws.com/js/bootstrap.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="background-color:silver">
+    <form runat="server" id="form1">
+        <div class="navbar navbar-inverse">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="Default.aspx">
+                        <img src="https://dmw2-shapestoreresources.s3.amazonaws.com/siteimages/logo.png" /></a>
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li class="active"><a href="Default.aspx"><i class="icon-home icon-white"></i>Home</a></li>
+                            <li><a href="#">Catalog</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="CreateAccount.aspx">Create Account</a></li>
+                                    <li><a href="#">Order History</a></li>
+                                    <li><a href="#">Settings</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <asp:LoginStatus ID="LoginStatus1" CssClass="pull-right" ForeColor="White" runat="server" />
+                            </li>
+                        </ul>
+                        <input type="text" class="search-query span2" style="margin-top: 5px" placeholder="Search" />
+
+                        <a class="btn btn-small pull-right" href="Cart.aspx"><i class="icon-shopping-cart"></i>cart</a>
+
+                    </div>
+                    <!-- /.nav-collapse -->
+                </div>
+                <!-- /.container -->
+            </div>
+            <!-- /.navbar-inner -->
+        </div>
+        <!-- /.navbar -->
+         <div style="float:left" class="muted">server: <asp:Label ID="lblServer" runat="server" /></div>
+        <div class="container" style="background-color:white; padding:5px 5px 5px 5px">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+        
+</body>
+</html>
