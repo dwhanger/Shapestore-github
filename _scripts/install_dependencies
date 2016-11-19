@@ -1,4 +1,5 @@
 #!/bin/bash
 # yum install -y httpd
-# windows wants something to execute...
-exit 0
+# install server manager and iis if not already installed....
+powershell.exe -Command Import-Module -Name ServerManager
+powershell.exe -Command Install-WindowsFeature Web-Server -IncludeAllSubFeature -IncludeManagementTools
