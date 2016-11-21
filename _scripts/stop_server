@@ -4,5 +4,5 @@
 #    service httpd stop        
 #fi
 # windows
-net stop w3svc
-
+#net stop w3svc
+powershell.exe -Command Stop-Service -Name "w3svc" -Force
