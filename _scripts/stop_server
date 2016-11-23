@@ -7,3 +7,4 @@
 # net stop w3svc
 # powershell.exe -Command Stop-Service -Name "w3svc" -Force
 
+exit 0
