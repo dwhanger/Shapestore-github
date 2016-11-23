@@ -4,12 +4,12 @@ files:
   - source: \
     destination: c:\inetpub\wwwroot\shapestore
 hooks:
-  ApplicationStop:
-    - location: _scripts/stop_server
-      timeout: 300
-      runas: admin
   BeforeInstall:
     - location: _scripts/install_dependencies
+      timeout: 300
+      runas: admin
+  ApplicationStop:
+    - location: _scripts/stop_server
       timeout: 300
       runas: admin
   ApplicationStart:
@@ -18,5 +18,6 @@ hooks:
       runas: admin
   ValidateService:
     - location: _scripts/verify_service
+      timeout: 300
       runas: admin
 
