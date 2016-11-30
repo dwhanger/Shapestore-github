@@ -1,2 +1,2 @@
 @ECHO OFF
-PowerShell.exe -Command "& '_scripts/verify_service.ps1'"
+PowerShell.exe -Command "& '%~dpn0.ps1'"
