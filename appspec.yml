@@ -7,17 +7,17 @@ hooks:
   BeforeInstall:
     - location: _scripts/install_dependencies.bat
       timeout: 300
-      runas: administrator
+      runas: Administrator
   ApplicationStop:
     - location: _scripts/stop_server.bat
       timeout: 300
-      runas: administrator
+      runas: Administrator
   ApplicationStart:
     - location: _scripts/start_server.bat
       timeout: 300
-      runas: administrator
+      runas: Administrator
   ValidateService:
     - location: _scripts/verify_service.bat
       timeout: 300
-      runas: administrator
+      runas: Administrator
 
