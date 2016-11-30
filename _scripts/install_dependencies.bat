@@ -1,2 +1,2 @@
 @ECHO OFF
-PowerShell.exe -Command "& 'install_dependencies.ps1'"
+PowerShell.exe -Command "& '_scripts/install_dependencies.ps1'"
