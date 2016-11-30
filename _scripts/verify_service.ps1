@@ -1,7 +1,7 @@
 #
 #
 #
-$result = (curl http://localhost/index.html).StatusCode
+$result = (curl -UseBasicParsing http://localhost/index.html).StatusCode
 
 if ("$result" -eq "200") { 
 	exit 0
