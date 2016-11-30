@@ -5,19 +5,19 @@ files:
     destination: c:\inetpub\wwwroot\shapestore
 hooks:
   BeforeInstall:
-    - location: _scripts/install_dependencies
+    - location: _scripts/install_dependencies.bat
       timeout: 300
       runas: administrator
   ApplicationStop:
-    - location: _scripts/stop_server
+    - location: _scripts/stop_server.bat
       timeout: 300
       runas: administrator
   ApplicationStart:
-    - location: _scripts/start_server
+    - location: _scripts/start_server.bat
       timeout: 300
       runas: administrator
   ValidateService:
-    - location: _scripts/verify_service
+    - location: _scripts/verify_service.bat
       timeout: 300
       runas: administrator
 
