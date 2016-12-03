@@ -8,6 +8,10 @@ hooks:
     - location: _scripts/install_dependencies.bat
       timeout: 300
       runas: Administrator
+  AfterInstall:
+    - location: _scripts/after_install.bat
+      timeout: 300
+      runas: Administrator
   ApplicationStop:
     - location: _scripts/stop_server.bat
       timeout: 300
