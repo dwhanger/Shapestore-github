@@ -5,3 +5,10 @@
 # 
 PowerShell.exe -Command "& {Start-Process PowerShell.exe -ArgumentList 'Import-Module -Name ServerManager' -Verb RunAs}"
 PowerShell.exe -Command "& {Start-Process PowerShell.exe -ArgumentList 'Install-WindowsFeature Web-Server -IncludeAllSubFeature -IncludeManagementTools' -Verb RunAs}"
+
+#
+# Prepare for the install of the new code....
+# .....backup the previous version of the app...and remove the directory...
+#
+xcopy c:\inetpub\wwwroot\shapestore c:\inetpub\wwwroot\shapestore.bak /s /i
+rmdir /s /q c:\inetpub\wwwroot\shapestore
