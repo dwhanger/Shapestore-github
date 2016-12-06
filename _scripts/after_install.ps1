@@ -14,7 +14,7 @@
 #	Out-File c:\inetpub\wwwroot\shapestore\Web.config
 # }
 
-If ( "$DEPLOYMENT_GROUP_NAME" == "TEST%" )
+If ( "$DEPLOYMENT_GROUP_NAME" -like "TEST*" )
 {
 	(Get-Content c:\inetpub\wwwroot\shapestore\Web.config) | 
 	Foreach-Object {$_ -replace '%%MYSQLDB_STRING%%','testdmw2shapestoreinstance.cxkjrsk8xjz1.us-west-2.rds.amazonaws.com'}  | 
@@ -32,7 +32,7 @@ If ( "$DEPLOYMENT_GROUP_NAME" == "TEST%" )
 	Foreach-Object {$_ -replace '%%S3_BUCKET_NAME_STRING%%','test-dmw2-shapestoreresources'}  | 
 	Out-File c:\inetpub\wwwroot\shapestore\Web.config
 }
-ElseIf ( "$DEPLOYMENT_GROUP_NAME" == "DEV%" )
+ElseIf ( "$DEPLOYMENT_GROUP_NAME" -like "DEV*" )
 {
 	(Get-Content c:\inetpub\wwwroot\shapestore\Web.config) | 
 	Foreach-Object {$_ -replace '%%MYSQLDB_STRING%%','dmw2shapestoreinstance.cxkjrsk8xjz1.us-west-2.rds.amazonaws.com'}  | 
