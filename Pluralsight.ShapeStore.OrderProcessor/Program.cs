@@ -18,12 +18,15 @@ namespace Pluralsight.ShapeStore.OrderProcessor
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("** Pluralsight Course Demo - Receive/Delete From Queue **");
+            Console.WriteLine("** Shapestore - Receive/Delete From Queue **");
 
             ConsoleKeyInfo cki = new ConsoleKeyInfo();
 
+            //get the queue name
+            string sqsQueueNameString = ConfigurationManager.AppSettings["SQSQueueName"];
+
             Amazon.SQS.AmazonSQSConfig cfg = new Amazon.SQS.AmazonSQSConfig();
-            cfg.ServiceURL = "https://sqs.us-west-2.amazonaws.com/591516837963/dmw2-shapeorders-queue";
+            cfg.ServiceURL = sqsQueueNameString;
             cfg.RegionEndpoint = Amazon.RegionEndpoint.USWest2;
 
             //create client object
@@ -52,11 +55,14 @@ namespace Pluralsight.ShapeStore.OrderProcessor
         {
             //connect to queue and process records
             Console.WriteLine("Polling queue ...");
-    
+
+            //get the queue name
+            string sqsQueueNameString = ConfigurationManager.AppSettings["SQSQueueName"];
+
             ReceiveMessageRequest request = new ReceiveMessageRequest();
             request.AttributeName = new List<string>() { "All" };
             request.MaxNumberOfMessages = 10;
-            request.QueueUrl = "https://sqs.us-west-2.amazonaws.com/591516837963/dmw2-shapeorders-queue";
+            request.QueueUrl = sqsQueueNameString;
 
             //create object to hold results
             List<Message> queueMessages = new List<Message>();
@@ -137,9 +143,12 @@ namespace Pluralsight.ShapeStore.OrderProcessor
 
         private static void DeleteMessages(AmazonSQSClient client, List<Message> queueMessages)
         {
+            //get the queue name
+            string sqsQueueNameString = ConfigurationManager.AppSettings["SQSQueueName"];
+
             //delete message(s)
             DeleteMessageBatchRequest batchRequest = new DeleteMessageBatchRequest();
-            batchRequest.QueueUrl = "https://sqs.us-west-2.amazonaws.com/591516837963/dmw2-shapeorders-queue";
+            batchRequest.QueueUrl = sqsQueueNameString;
             batchRequest.Entries = new List<DeleteMessageBatchRequestEntry>();
             foreach (Message m in queueMessages)
             {

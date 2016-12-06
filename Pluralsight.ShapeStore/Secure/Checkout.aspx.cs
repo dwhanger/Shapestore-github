@@ -80,8 +80,11 @@ namespace Pluralsight.ShapeStore.Secure
             cart.CcNumber = txtCcNumber.Text;
             cart.CcExpiration = txtExpire.Text;
 
+            //get the queue name
+            string sqsQueueNameString = ConfigurationManager.AppSettings["SQSQueueName"];
+
             Amazon.SQS.AmazonSQSConfig cfg = new Amazon.SQS.AmazonSQSConfig();
-            cfg.ServiceURL = "https://sqs.us-west-2.amazonaws.com/591516837963/dmw2-shapeorders-queue";
+            cfg.ServiceURL = sqsQueueNameString;
             cfg.RegionEndpoint = Amazon.RegionEndpoint.USWest2;
 
             //"AKIAIK3JOZ6YYNWIYVWQ", "rKOBBRaTz6ltcvJEEu4wuFblQxh/PmiU4GtnCsst" being read out of the config file 
@@ -92,7 +95,7 @@ namespace Pluralsight.ShapeStore.Secure
                 var jsoncart = Newtonsoft.Json.JsonConvert.SerializeObject(cart);
 
                 SendMessageRequest request = new SendMessageRequest();
-                request.QueueUrl = "https://sqs.us-west-2.amazonaws.com/591516837963/dmw2-shapeorders-queue";
+                request.QueueUrl = sqsQueueNameString;
                 request.MessageBody = jsoncart;
 
                 SendMessageResponse response = client.SendMessage(request);
