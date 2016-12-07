@@ -19,6 +19,18 @@ If ( $env:DEPLOYMENT_GROUP_NAME -like "TEST*" )
 	(Get-Content c:\inetpub\wwwroot\shapestore\Web.config) | 
 	Foreach-Object {$_ -replace '%%S3_BUCKET_NAME_STRING%%','test-dmw2-shapestoreresources'}  | 
 	Out-File c:\inetpub\wwwroot\shapestore\Web.config
+
+	(Get-Content c:\inetpub\wwwroot\shapestore\Web.config) | 
+	Foreach-Object {$_ -replace '%%MYSQLDB_DBNAME_STRING%%','dmw2shapestoredb'}  | 
+	Out-File c:\inetpub\wwwroot\shapestore\Web.config
+
+	(Get-Content c:\inetpub\wwwroot\shapestore\Web.config) | 
+	Foreach-Object {$_ -replace '%%MYSQLDB_USER_STRING%%','admin'}  | 
+	Out-File c:\inetpub\wwwroot\shapestore\Web.config
+
+	(Get-Content c:\inetpub\wwwroot\shapestore\Web.config) | 
+	Foreach-Object {$_ -replace '%%MYSQLDB_PASSWORD_STRING%%','Password1234'}  | 
+	Out-File c:\inetpub\wwwroot\shapestore\Web.config
 }
 ElseIf ( $env:DEPLOYMENT_GROUP_NAME -like "DEV*" )
 {
@@ -36,5 +48,17 @@ ElseIf ( $env:DEPLOYMENT_GROUP_NAME -like "DEV*" )
 
 	(Get-Content c:\inetpub\wwwroot\shapestore\Web.config) | 
 	Foreach-Object {$_ -replace '%%S3_BUCKET_NAME_STRING%%','dev-dmw2-shapestoreresources'}  | 
+	Out-File c:\inetpub\wwwroot\shapestore\Web.config
+
+	(Get-Content c:\inetpub\wwwroot\shapestore\Web.config) | 
+	Foreach-Object {$_ -replace '%%MYSQLDB_DBNAME_STRING%%','TESTdmw2shapestoredb'}  | 
+	Out-File c:\inetpub\wwwroot\shapestore\Web.config
+
+	(Get-Content c:\inetpub\wwwroot\shapestore\Web.config) | 
+	Foreach-Object {$_ -replace '%%MYSQLDB_USER_STRING%%','admin'}  | 
+	Out-File c:\inetpub\wwwroot\shapestore\Web.config
+
+	(Get-Content c:\inetpub\wwwroot\shapestore\Web.config) | 
+	Foreach-Object {$_ -replace '%%MYSQLDB_PASSWORD_STRING%%','Password1234'}  | 
 	Out-File c:\inetpub\wwwroot\shapestore\Web.config
 }
