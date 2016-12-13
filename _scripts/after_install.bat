@@ -31,3 +31,5 @@ IF "%DEPLOYMENT_GROUP_NAME%"=="Dev-ShapestoreGroup" (
 	move /Y c:\temp\web7.text c:\inetpub\wwwroot\shapestore\Web.config
 REM	del c:\temp\web?.text
 )
+
+ELSE IF "me" == "me" ( echo "me")
