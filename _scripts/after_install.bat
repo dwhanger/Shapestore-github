@@ -32,4 +32,3 @@ IF "%DEPLOYMENT_GROUP_NAME%"=="Dev-ShapestoreGroup" (
 REM	del c:\temp\web?.text
 )
 
-ELSE IF "me" == "me" ( echo "me")
