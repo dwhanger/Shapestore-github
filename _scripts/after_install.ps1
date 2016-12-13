@@ -12,7 +12,7 @@ If ( $env:DEPLOYMENT_GROUP_NAME -like "TEST*" )
 	call BatchSubstitute.bat ___MYSQLDB_USER_STRING___ admin c:\temp\Web5.text > c:\temp\Web6.text
 	call BatchSubstitute.bat ___MYSQLDB_PASSWORD_STRING___ Password1234 c:\temp\Web6.text > c:\temp\Web7.text
 	mv c:\temp\web7.text c:\inetpub\wwwroot\shapestore\Web.config
-	del c:\temp\web?.text
+#	del c:\temp\web?.text
 
 #
 # Unfortunately, the following does not work because it inserts a LF in the output text along with the CR and there is a way to suppress that with the OutFile cmdlet with a -NoNewLine but...
@@ -32,5 +32,5 @@ ElseIf ( $env:DEPLOYMENT_GROUP_NAME -like "DEV*" )
 	call BatchSubstitute.bat ___MYSQLDB_USER_STRING___ admin c:\temp\Web5.text > c:\temp\Web6.text
 	call BatchSubstitute.bat ___MYSQLDB_PASSWORD_STRING___ j57Q25oTosk2sWybLr3f; c:\temp\Web6.text > c:\temp\Web7.text
 	mv c:\temp\web7.text c:\inetpub\wwwroot\shapestore\Web.config
-	del c:\temp\web?.text
+#	del c:\temp\web?.text
 }
