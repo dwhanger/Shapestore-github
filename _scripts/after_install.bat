@@ -5,7 +5,7 @@ REM Fixup the strings in the web.config and other places after the deployment...
 REM 
 REM 
 
-If ( %DEPLOYMENT_GROUP_NAME% == "Test-ShapestoreGroup" )
+If "%DEPLOYMENT_GROUP_NAME%" == "Test-ShapestoreGroup"
 {
 	echo "TEST..."
 
@@ -19,7 +19,7 @@ If ( %DEPLOYMENT_GROUP_NAME% == "Test-ShapestoreGroup" )
 	mv c:\temp\web7.text c:\inetpub\wwwroot\shapestore\Web.config
 REM del c:\temp\web?.text
 }
-ElseIf ( %DEPLOYMENT_GROUP_NAME% == "Dev-ShapestoreGroup" )
+ElseIf "%DEPLOYMENT_GROUP_NAME%" == "Dev-ShapestoreGroup"
 {
 	echo "DEV..."
 
