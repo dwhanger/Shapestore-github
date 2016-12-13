@@ -15,7 +15,7 @@ IF "%DEPLOYMENT_GROUP_NAME%"=="Test-ShapestoreGroup" (
 	call BatchSubstitute.bat ___MYSQLDB_DBNAME_STRING___ TESTdmw2shapestoredb c:\temp\Web4.text > c:\temp\Web5.text
 	call BatchSubstitute.bat ___MYSQLDB_USER_STRING___ admin c:\temp\Web5.text > c:\temp\Web6.text
 	call BatchSubstitute.bat ___MYSQLDB_PASSWORD_STRING___ Password1234 c:\temp\Web6.text > c:\temp\Web7.text
-	mv c:\temp\web7.text c:\inetpub\wwwroot\shapestore\Web.config
+	move /Y c:\temp\web7.text c:\inetpub\wwwroot\shapestore\Web.config
 REM del c:\temp\web?.text
 )
 IF "%DEPLOYMENT_GROUP_NAME%"=="Dev-ShapestoreGroup" (
@@ -28,6 +28,6 @@ IF "%DEPLOYMENT_GROUP_NAME%"=="Dev-ShapestoreGroup" (
 	call BatchSubstitute.bat ___MYSQLDB_DBNAME_STRING___ dmw2shapestoredb c:\temp\Web4.text > c:\temp\Web5.text
 	call BatchSubstitute.bat ___MYSQLDB_USER_STRING___ admin c:\temp\Web5.text > c:\temp\Web6.text
 	call BatchSubstitute.bat ___MYSQLDB_PASSWORD_STRING___ j57Q25oTosk2sWybLr3f; c:\temp\Web6.text > c:\temp\Web7.text
-	mv c:\temp\web7.text c:\inetpub\wwwroot\shapestore\Web.config
+	move /Y c:\temp\web7.text c:\inetpub\wwwroot\shapestore\Web.config
 REM	del c:\temp\web?.text
 )
