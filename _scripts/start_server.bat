@@ -1,3 +1,4 @@
-powershell.exe -Command Start-Service -Name "w3svc"
+REM @ECHO OFF
+PowerShell.exe -ExecutionPolicy Bypass -Command "& '%~dpn0.ps1'"
 
 
