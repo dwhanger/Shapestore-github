@@ -1,4 +1,6 @@
 REM @ECHO OFF
+REM
+REM Uncomment following line if there are powershell scripts that need running...
 REM PowerShell.exe -ExecutionPolicy Bypass -Command "& '%~dpn0.ps1'"
 
 REM Fixup the strings in the web.config and other places after the deployment....
@@ -9,7 +11,7 @@ REM
 REM IF "%variable:~0,3%"=="ABC"
 REM
 REM
-IF "%DEPLOYMENT_GROUP_NAME%:~0,4"=="Test" (
+IF "%DEPLOYMENT_GROUP_NAME:~0,4%"=="Test" (
 REM IF "%DEPLOYMENT_GROUP_NAME%"=="Test-ShapestoreGroup" (
 	echo "TEST..."
 
@@ -23,7 +25,7 @@ REM IF "%DEPLOYMENT_GROUP_NAME%"=="Test-ShapestoreGroup" (
 	move /Y c:\temp\web7.text c:\inetpub\wwwroot\shapestore\Web.config
 	del c:\temp\web?.text
 )
-IF "%DEPLOYMENT_GROUP_NAME%:~0,3"=="Dev" (
+IF "%DEPLOYMENT_GROUP_NAME:~0,3%"=="Dev" (
 REM IF "%DEPLOYMENT_GROUP_NAME%"=="Dev-ShapestoreGroup" (
 	echo "DEV..."
 
