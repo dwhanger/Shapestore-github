@@ -5,7 +5,12 @@ REM Fixup the strings in the web.config and other places after the deployment...
 REM 
 REM 
 
-IF "%DEPLOYMENT_GROUP_NAME%"=="Test-ShapestoreGroup" (
+REM 
+REM IF "%variable:~0,3%"=="ABC"
+REM
+REM
+IF "%DEPLOYMENT_GROUP_NAME%:~0,4"=="Test" (
+REM IF "%DEPLOYMENT_GROUP_NAME%"=="Test-ShapestoreGroup" (
 	echo "TEST..."
 
 	call c:\inetpub\wwwroot\shapestore\_scripts\BatchSubstitute.bat ___MYSQLDB_STRING___ testdmw2shapestoreinstance.cxkjrsk8xjz1.us-west-2.rds.amazonaws.com c:\inetpub\wwwroot\shapestore\Web.config > c:\temp\Web1.text
@@ -18,7 +23,8 @@ IF "%DEPLOYMENT_GROUP_NAME%"=="Test-ShapestoreGroup" (
 	move /Y c:\temp\web7.text c:\inetpub\wwwroot\shapestore\Web.config
 	del c:\temp\web?.text
 )
-IF "%DEPLOYMENT_GROUP_NAME%"=="Dev-ShapestoreGroup" (
+IF "%DEPLOYMENT_GROUP_NAME%:~0,3"=="Dev" (
+REM IF "%DEPLOYMENT_GROUP_NAME%"=="Dev-ShapestoreGroup" (
 	echo "DEV..."
 
 	call c:\inetpub\wwwroot\shapestore\_scripts\BatchSubstitute.bat ___MYSQLDB_STRING___ dmw2shapestoreinstance.cxkjrsk8xjz1.us-west-2.rds.amazonaws.com c:\inetpub\wwwroot\shapestore\Web.config > c:\temp\Web1.text
